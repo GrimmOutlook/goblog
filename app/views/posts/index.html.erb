@@ -3,9 +3,10 @@
   <% @posts.each do |post| %>
  <!-- Need to somehow reverse the order that these show up in -->
 
-  <h2><%= post.title %></h2>
+  <h2><%= link_to post.title, post %></h2>
   <p><%= post.content %></p>
   <hr />
 
-
   <% end %>
+
+<p><%= link_to "Add a New Post", new_post_path %></p>
