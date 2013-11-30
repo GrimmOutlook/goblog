@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
  
   def show
-    @post = Post.find(post_params[:id])
+    @post = Post.find(params[:id])
   end
  
   def new
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
  
   def create
-    @post = Post.new(post_params[:post])
+    @post = Post.new(post_params)
 
     if @post.save
       redirect_to posts_path, :notice => "Post was saved successfully!"
@@ -36,9 +36,9 @@ class PostsController < ApplicationController
 
   end
 
-def post_params
-  params.require(:post).permit(:title, :content)
-end
-
+  private
+  def post_params
+    params.require(:post).permit(:title, :content)
+  end
 
 end
