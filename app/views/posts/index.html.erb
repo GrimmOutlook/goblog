@@ -3,6 +3,8 @@
 
   <h2><%= link_to post.title, post %></h2>
   <p><%= post.content %></p>
+  <p><%= link_to "Edit Post", edit_post_path(post) %>
+     <%= link_to "Delete this Post", post, confirm: "Sure? Once it's gone, it's gone!", method: :delete %></p>
   <hr />
 
   <% end %>
