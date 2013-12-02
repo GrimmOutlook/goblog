@@ -1,22 +1,7 @@
 <h1>Use this form to add a new post!</h1>
 
-<%= form_for @post do |f| %>
-  <% if @post.errors.any? %>
-    <h2>Not so fast! <%= pluralize(@product.errors.count, "error") %> were found:</h2>
-    <ul>
-    <% @post.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>  
-    </ul>
-  <% end %>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </p>
+<%= render 'form' %>
+
   <p>
     <%= f.submit "Add a New Post" %>
   </p>
