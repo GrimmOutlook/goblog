@@ -2,6 +2,14 @@ class PostsController < ApplicationController
   
   def index
   	@posts = Post.all(order: 'created_at DESC')
+
+    respond_to do |format|
+      format.html
+      format.rss
+      format.json do
+        render json: @posts
+      end
+    end
   end
  
   def show
