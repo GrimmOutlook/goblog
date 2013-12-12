@@ -5,4 +5,12 @@ class Post < ActiveRecord::Base
 
 	has_many :comments
 
+	has_many :taggings
+	has_many :tags, :through => :taggings
+
+	def tag_list
+		self.tags.collect do |tag|
+			tags.name.join = (", ")
+		end
+	end
 end
